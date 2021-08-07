@@ -1,30 +1,42 @@
 {
   "compilerOptions": {
+    // 目标代码(js -> es5/6/7)
     "target": "esnext",
+    // 生成代码使用的模块化
     "module": "esnext",
+    // 打开所有的严格模式检查
     "strict": true,
+    // jsx的处理方式(preserve：保留原有的jsx格式)
     "jsx": "preserve",
+    // 是否帮助导入一些需要的功能模块
     "importHelpers": true,
+    /**
+    * 按照 node 的模块解析规则
+    * https://www.typescriptlang.org/tsconfig
+    */
     "moduleResolution": "node",
+    // 跳过对整个库进行类似检测，而仅仅检测你用到的类型
     "skipLibCheck": true,
+    // 可以让 es module 和 common js 相互调用
     "esModuleInterop": true,
+    /**
+    * 允许合成默认模块导出
+    * import * as react from 'react': false
+    * import react from 'react': true
+    */
     "allowSyntheticDefaultImports": true,
+    // 是否要生成 sourcemap 文件(ts -> js)
     "sourceMap": true,
+    // 文件路径在解析时的基本 url
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    // 指定 types 文件需要加载哪些（默认是都会进行加载的）
+    "types": ["webpack-env"],
+    // 路径的映射设置，类似于 webpack 中的 alias
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    // 指定我们需要使用到的库(也可以不配置，直接根据 target 来获取)
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "src/**/*.ts",
@@ -33,7 +45,5 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
